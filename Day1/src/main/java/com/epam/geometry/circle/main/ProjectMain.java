@@ -6,11 +6,12 @@ import com.epam.geometry.circle.service.*;
 
 public class ProjectMain {
     public static void main(String[] args) {
-        CircleService service = new CircleService();
-        Creator creator = new Creator();
         double radius = 3;
-        Circle circle = creator.createCircle(radius, service);
+        Circle circle = new Circle(radius);
+        CircleService service = new CircleService();
+        double circleLength = service.findCircleLength(circle);
+        double circleArea = service.findCircleArea(circle);
         CircleReport report = new CircleReport();
-        report.reportCircle(circle);
+        report.reportCircle(circle, circleLength, circleArea);
     }
 }
