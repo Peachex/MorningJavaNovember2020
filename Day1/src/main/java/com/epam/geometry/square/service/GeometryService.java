@@ -4,20 +4,24 @@ import com.epam.geometry.square.entity.Circle;
 import com.epam.geometry.square.entity.Square;
 
 public class GeometryService {
-    public double findArea(double sideLength) {
-        return Math.pow(sideLength, 2);
+    public double findArea(Square square) {
+        double result = Math.pow(square.getSideLength(), 2);
+        return result;
     }
 
     public double findSquareLengthByArea(double area) {
-        return Math.sqrt(area);
+        double result = Math.sqrt(area);
+        return result;
     }
 
     public double findRadiusBySquareLength(Square square) {
-        return (square.getSideLength() / 2);
+        double result = square.getSideLength() / 2;
+        return result;
     }
 
-    public double findAreaRatio(Square square1, Square square2) {
-        return (square1.getArea() / square2.getArea());
+    public double findAreaRatio(double area1, double area2) {
+        double result = area1 / area2;
+        return result;
     }
 
     public double findSquareLengthByRadius(Circle circle) {
