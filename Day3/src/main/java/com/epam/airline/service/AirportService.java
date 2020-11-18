@@ -4,14 +4,12 @@ import com.epam.airline.entity.*;
 
 import java.time.LocalTime;
 import java.time.DayOfWeek;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Comparator;
+import java.util.*;
 
 public class AirportService {
-    public List<Airline> findFlightByDestination(String destination, Airport airport) {
-        List<Airline> airlinesArray = airport.getAirlinesArray();
-        List<Airline> result = new ArrayList<Airline>();
+    public Set<Airline> findFlightByDestination(String destination, Airport airport) {
+        Set<Airline> airlinesArray = airport.getAirlines();
+        Set<Airline> result = new LinkedHashSet<Airline>();
         for (Airline airline : airlinesArray) {
             if (airline.getDestination().equalsIgnoreCase(destination)) {
                 result.add(airline);
@@ -20,9 +18,9 @@ public class AirportService {
         return result;
     }
 
-    public List<Airline> findFlightByDayOfWeek(DayOfWeek dayOfWeek, Airport airport) {
-        List<Airline> airlinesArray = airport.getAirlinesArray();
-        List<Airline> result = new ArrayList<Airline>();
+    public Set<Airline> findFlightByDayOfWeek(DayOfWeek dayOfWeek, Airport airport) {
+        Set<Airline> airlinesArray = airport.getAirlines();
+        Set<Airline> result = new LinkedHashSet<Airline>();
         for (Airline airline : airlinesArray) {
             if (airline.getDayOfWeek().equals(dayOfWeek)) {
                 result.add(airline);
@@ -31,9 +29,9 @@ public class AirportService {
         return result;
     }
 
-    public List<Airline> findFlightByDayOfWeekAndTime(DayOfWeek dayOfWeek, LocalTime time, Airport airport) {
-        List<Airline> airlinesArray = airport.getAirlinesArray();
-        List<Airline> result = new ArrayList<Airline>();
+    public Set<Airline> findFlightByDayOfWeekAndTime(DayOfWeek dayOfWeek, LocalTime time, Airport airport) {
+        Set<Airline> airlinesArray = airport.getAirlines();
+        Set<Airline> result = new LinkedHashSet<Airline>();
         for (Airline airline : airlinesArray) {
             if (airline.getDayOfWeek().equals(dayOfWeek) && airline.getDepartureTime().isAfter(time)) {
                 result.add(airline);
@@ -42,9 +40,9 @@ public class AirportService {
         return result;
     }
 
-    public List<Airline> findFlightByPlaneType(String planeType, Airport airport) {
-        List<Airline> airlinesArray = airport.getAirlinesArray();
-        List<Airline> result = new ArrayList<Airline>();
+    public Set<Airline> findFlightByPlaneType(String planeType, Airport airport) {
+        Set<Airline> airlinesArray = airport.getAirlines();
+        Set<Airline> result = new LinkedHashSet<Airline>();
         for (Airline airline : airlinesArray) {
             if (airline.getPlaneType().equals(planeType)) {
                 result.add(airline);
@@ -53,15 +51,15 @@ public class AirportService {
         return result;
     }
 
-    public List<Airline> sortFlightByDayOfWeek(boolean fromMinToMax, Airport airport) {
-        List<Airline> result = airport.getAirlinesArray();
-        result.sort(new Comparator<Airline>() {
+    public Set<Airline> sortFlightByDayOfWeek(boolean fromMinToMax, Airport airport) {
+        List<Airline> sortedList = new ArrayList<Airline>(airport.getAirlines());
+        sortedList.sort(new Comparator<Airline>() {
             @Override
-            public int compare(Airline o1, Airline o2) {
-                int result = Integer.compare(o1.getDayOfWeek().getValue(), o2.getDayOfWeek().getValue());
+            public int compare(Airline airline1, Airline airline2) {
+                int result = Integer.compare(airline1.getDayOfWeek().getValue(), airline2.getDayOfWeek().getValue());
                 return (fromMinToMax ? 1 : -1) * result;
             }
         });
-        return result;
+        return new LinkedHashSet<Airline>(sortedList);
     }
 }
