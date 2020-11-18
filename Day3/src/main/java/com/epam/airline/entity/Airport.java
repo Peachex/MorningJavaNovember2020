@@ -1,44 +1,45 @@
 package com.epam.airline.entity;
 
+import java.math.*;
 import java.time.DayOfWeek;
 import java.time.LocalTime;
-import java.util.List;
-import java.util.ArrayList;
+import java.util.Set;
+import java.util.LinkedHashSet;
 
 public class Airport {
-    private List<Airline> airlinesArray;
+    private Set<Airline> airlines;
 
     public Airport() {
-        airlinesArray = new ArrayList<Airline>();
+        airlines = new LinkedHashSet<Airline>();
 
-        airlinesArray.add(new Airline("Minsk", "4", "Jumbo Passenger Jet",
-                LocalTime.of(10, 11, 23), DayOfWeek.SUNDAY));
+        airlines.add(new Airline("Minsk", "4", "Jumbo Passenger Jet",
+                LocalTime.of(10, 11, 23), DayOfWeek.SUNDAY, new BigDecimal("19.99")));
 
-        airlinesArray.add(new Airline("Beijing", "2", "Mid Size Passenger Jet",
-                LocalTime.of(5, 25, 1), DayOfWeek.FRIDAY));
+        airlines.add(new Airline("Beijing", "2", "Mid Size Passenger Jet",
+                LocalTime.of(5, 25, 1), DayOfWeek.FRIDAY, new BigDecimal("10.00")));
 
-        airlinesArray.add(new Airline("Denver", "1", "Light Passenger Jet",
-                LocalTime.of(14, 32, 56), DayOfWeek.MONDAY));
+        airlines.add(new Airline("Denver", "1", "Light Passenger Jet",
+                LocalTime.of(14, 32, 56), DayOfWeek.MONDAY, new BigDecimal("9.39")));
 
-        airlinesArray.add(new Airline("Minsk", "3", "Passenger Turbo Props",
-                LocalTime.of(19, 19, 19), DayOfWeek.FRIDAY));
+        airlines.add(new Airline("Minsk", "3", "Passenger Turbo Props",
+                LocalTime.of(19, 19, 19), DayOfWeek.FRIDAY, new BigDecimal("15.55")));
 
-        airlinesArray.add(new Airline("Denver", "5", "Cargo",
-                LocalTime.of(23, 59, 59), DayOfWeek.MONDAY));
+        airlines.add(new Airline("Denver", "5", "Cargo",
+                LocalTime.of(23, 59, 59), DayOfWeek.MONDAY, new BigDecimal("34.23")));
     }
 
-    public List<Airline> getAirlinesArray() {
-        return this.airlinesArray;
+    public Set<Airline> getAirlines() {
+        return this.airlines;
     }
 
-    public void addToAirlinesArray(Airline airline) {
-        this.airlinesArray.add(airline);
+    public void addToAirlines(Airline airline) {
+        this.airlines.add(airline);
     }
 
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Airport{");
-        sb.append("airlinesArray=").append(airlinesArray);
+        sb.append("airlines=").append(airlines);
         sb.append('}');
         return sb.toString();
     }
