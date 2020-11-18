@@ -1,8 +1,6 @@
 package com.epam.function.single.service;
 
-import com.epam.function.single.entity.Function;
-
-public class FunctionService {
+public class MathFunctionService {
     public double findFunctionByArg(double arg) {
         double result = 0;
         if (arg >= 3) {

@@ -5,14 +5,14 @@ import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
-public class FunctionServiceTest {
+public class MathFunctionServiceTest {
     @Test
     public void findFunctionByArg() {
         double expected = 9;
         double argumentValue = 3;
         Argument argument = new Argument(argumentValue);
-        FunctionService service = new FunctionService();
-        Function function = new Function(service.findFunctionByArg(argument.getValue()));
+        MathFunctionService service = new MathFunctionService();
+        MathFunction function = new MathFunction(service.findFunctionByArg(argument.getValue()));
         double actual = function.getValue();
         assertEquals(actual, expected);
     }

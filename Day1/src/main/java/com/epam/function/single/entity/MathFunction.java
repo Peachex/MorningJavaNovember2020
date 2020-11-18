@@ -1,9 +1,9 @@
 package com.epam.function.single.entity;
 
-public class Function {
+public class MathFunction {
     private double value;
 
-    public Function(double value) {
+    public MathFunction(double value) {
         this.value = value;
     }
 

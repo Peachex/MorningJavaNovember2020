@@ -2,7 +2,7 @@ package com.epam.geometry.square.main;
 
 import com.epam.geometry.square.entity.Circle;
 import com.epam.geometry.square.entity.Square;
-import com.epam.geometry.square.report.GeometricReport;
+import com.epam.geometry.square.report.GeometryReport;
 import com.epam.geometry.square.service.GeometryService;
 
 public class ProjectMain {
@@ -15,7 +15,7 @@ public class ProjectMain {
         double squareArea = service.findArea(square);
         double inscribedSquareArea = service.findArea(inscribedSquare);
         double areaRatio = service.findAreaRatio(squareArea, inscribedSquareArea);
-        GeometricReport reporter = new GeometricReport();
+        GeometryReport reporter = new GeometryReport();
         reporter.reportSquareArea(squareArea, inscribedSquareArea, areaRatio);
     }
 }
