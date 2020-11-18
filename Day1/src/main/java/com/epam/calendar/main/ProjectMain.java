@@ -11,8 +11,9 @@ public class ProjectMain {
         LocalDate date = LocalDate.of(2021, 2, 2);
         Calendar calendar = new Calendar(date);
         CalendarService service = new CalendarService();
-        int daysAmount = service.findDaysAmount(calendar.getDate());
+        int daysAmount = service.findDaysAmount(calendar);
+        boolean hasExtraDay = service.checkYearForExtraDay(calendar);
         CalendarReport reporter = new CalendarReport();
-        reporter.reportCalendar(calendar, daysAmount);
+        reporter.reportCalendar(calendar, daysAmount, hasExtraDay);
     }
 }
