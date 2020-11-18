@@ -2,11 +2,10 @@ package com.epam.airline.report;
 
 import com.epam.airline.entity.*;
 
-import java.util.List;
-import java.util.ArrayList;
+import java.util.Set;
 
 public class AirlineReport {
-    public void reportAirline(List<Airline> airlines) {
-        System.out.println(airlines);
+    public void reportAirline(Set<Airline> airlines) {
+        System.out.println(airlines + "\n");
     }
 }
