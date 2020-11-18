@@ -1,9 +1,13 @@
 package com.epam.calendar.service;
 
-import java.time.LocalDate;
+import com.epam.calendar.entity.*;
 
 public class CalendarService {
-    public int findDaysAmount(LocalDate date) {
-        return date.lengthOfMonth();
+    public int findDaysAmount(Calendar calendar) {
+        return calendar.getDate().lengthOfMonth();
+    }
+
+    public boolean checkYearForExtraDay(Calendar calendar) {
+        return calendar.getDate().isLeapYear();
     }
 }
