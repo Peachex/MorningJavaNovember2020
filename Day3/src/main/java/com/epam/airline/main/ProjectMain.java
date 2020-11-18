@@ -6,7 +6,7 @@ import com.epam.airline.service.AirportService;
 
 import java.time.LocalTime;
 import java.time.DayOfWeek;
-import java.util.List;
+import java.util.Set;
 
 public class ProjectMain {
     public static void main(String[] args) {
@@ -18,11 +18,11 @@ public class ProjectMain {
         DayOfWeek dayOfWeek = DayOfWeek.MONDAY;
         boolean fromMinToMax = true;
 
-        List<Airline> result1 = service.findFlightByDestination(destination, airport);
-        List<Airline> result2 = service.findFlightByDayOfWeek(dayOfWeek, airport);
-        List<Airline> result3 = service.findFlightByDayOfWeekAndTime(dayOfWeek, time, airport);
-        List<Airline> result4 = service.findFlightByPlaneType(planeType, airport);
-        List<Airline> result5 = service.sortFlightByDayOfWeek(fromMinToMax, airport);
+        Set<Airline> result1 = service.findFlightByDestination(destination, airport);
+        Set<Airline> result2 = service.findFlightByDayOfWeek(dayOfWeek, airport);
+        Set<Airline> result3 = service.findFlightByDayOfWeekAndTime(dayOfWeek, time, airport);
+        Set<Airline> result4 = service.findFlightByPlaneType(planeType, airport);
+        Set<Airline> result5 = service.sortFlightByDayOfWeek(fromMinToMax, airport);
 
         AirlineReport reporter = new AirlineReport();
         reporter.reportAirline(result1);
