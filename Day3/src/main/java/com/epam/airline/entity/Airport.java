@@ -1,6 +1,6 @@
 package com.epam.airline.entity;
 
-import java.math.*;
+import java.math.BigDecimal;
 import java.time.DayOfWeek;
 import java.time.LocalTime;
 import java.util.Set;

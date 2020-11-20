@@ -1,10 +1,15 @@
 package com.epam.airline.service;
 
-import com.epam.airline.entity.*;
+import com.epam.airline.entity.Airline;
+import com.epam.airline.entity.Airport;
 
 import java.time.LocalTime;
 import java.time.DayOfWeek;
-import java.util.*;
+import java.util.Set;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Comparator;
 
 public class AirportService {
     public Set<Airline> findFlightByDestination(String destination, Airport airport) {

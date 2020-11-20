@@ -1,9 +1,9 @@
 package com.epam.airline.entity;
 
-import java.math.*;
+import java.math.BigDecimal;
 import java.time.LocalTime;
 import java.time.DayOfWeek;
-import java.util.*;
+import java.util.Objects;
 
 public class Airline {
     private String destination;
@@ -74,7 +74,7 @@ public class Airline {
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder();
-        sb.append("\ndestination = ").append(destination);
+        sb.append("destination = ").append(destination);
         sb.append("\nflightNumber = ").append(flightNumber);
         sb.append("\nplaneType = ").append(planeType);
         sb.append("\ndepartureTime = ").append(departureTime);
