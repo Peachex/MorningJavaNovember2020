@@ -32,7 +32,7 @@ public class ProjectMain {
         message4.append("Flights on ").append(planeType);
 
         StringBuilder message5 = new StringBuilder();
-        message5.append("Flights, sorted by day of week");
+        message5.append("Flights, sorted by day of week from ").append(fromMinToMax ? "min to max" : "max to min");
 
         Set<Airline> result1 = service.findFlightByDestination(destination, airport);
         Set<Airline> result2 = service.findFlightByDayOfWeek(dayOfWeek, airport);
