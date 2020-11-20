@@ -1,13 +1,15 @@
 package com.epam.airline.service;
 
-import com.epam.airline.entity.*;
+import com.epam.airline.entity.Airline;
+import com.epam.airline.entity.Airport;
 
 import static org.testng.Assert.assertEquals;
 
-import java.math.*;
+import java.math.BigDecimal;
 import java.time.LocalTime;
 import java.time.DayOfWeek;
-import java.util.*;
+import java.util.Set;
+import java.util.LinkedHashSet;
 
 import org.testng.annotations.Test;
 
@@ -77,7 +79,7 @@ public class AirportServiceTest {
 
     @Test
     public void sortFlightByDayOfWeek() {
-        List<Airline> expected = new ArrayList<Airline>();
+        Set<Airline> expected = new LinkedHashSet<Airline>();
 
         expected.add(new Airline("Denver", "1", "Light Passenger Jet",
                 LocalTime.of(14, 32, 56), DayOfWeek.MONDAY, new BigDecimal("9.39")));
