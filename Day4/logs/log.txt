@@ -1,4 +1,12 @@
-22-11-2020 23:58:46 (1306ms) reportArray INFO  report.JaggedArrayReport - Jagged array was sorted by rows' max element.
-
-22-11-2020 23:58:46 (1317ms) reportArray INFO  report.JaggedArrayReport - Jagged array, sorted by rows' min element.
-
+23-11-2020 00:10:27 (10679ms) reportArray INFO  report.SingleArrayReport - Random array. 
+23-11-2020 00:10:27 (10691ms) reportArray INFO  report.SingleArrayReport - Array from file. 
+23-11-2020 00:10:27 (10691ms) reportArray INFO  report.SingleArrayReport - Array from console. 
+23-11-2020 00:10:27 (10692ms) reportArray INFO  report.SingleArrayReport - Random array, sorted with Shell sort. 
+23-11-2020 00:10:27 (10692ms) reportArray INFO  report.SingleArrayReport - Array from file, sorted with quick sort. 
+23-11-2020 00:10:27 (10693ms) reportArray INFO  report.SingleArrayReport - Array from console, sorted with merge sort. 
+23-11-2020 00:10:27 (10694ms) reportBinarySearchResult INFO  report.SingleArrayReport - 10 - was found in the array (  
+23-11-2020 00:10:27 (10694ms) reportElement INFO  report.SingleArrayReport - Max element = 10 (  
+23-11-2020 00:10:27 (10694ms) reportElement INFO  report.SingleArrayReport - Min element = -8 (  
+23-11-2020 00:10:27 (10695ms) reportArray INFO  report.SingleArrayReport - Simple numbers from the array(file). 
+23-11-2020 00:10:27 (10696ms) reportArray INFO  report.SingleArrayReport - Fibonacci numbers from the array(file). 
+23-11-2020 00:10:27 (10697ms) reportArray INFO  report.SingleArrayReport - Numbers with different digits from the array(console). 

@@ -1,29 +1,34 @@
 package src.com.epam.array.single.report;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import src.com.epam.array.single.entity.SingleArray;
 
 public class SingleArrayReport {
+    private static final Logger logger = LogManager.getLogger();
+
     public void reportArray(SingleArray array, String message) {
-        System.out.print(message);
+        logger.info(message);
         for (int i : array.getArray()) {
-            System.out.print(i + "\t");
+            logger.debug(i + "\t");
         }
-        System.out.println("\n");
+        logger.debug("\n");
     }
 
     public void reportBinarySearchResult(SingleArray array, int key, boolean condition) {
-        System.out.print(key + (condition ? " - was found" : " - wasn't found") + " in the array (  ");
+        logger.info(key + (condition ? " - was found" : " - wasn't found") + " in the array (  ");
         for (int i : array.getArray()) {
-            System.out.print(i + "\t");
+            logger.debug(i + "\t");
         }
-        System.out.println(").\n");
+        logger.debug(").\n");
     }
 
-    public void reportElement(SingleArray array,int element, String message) {
-        System.out.print(message + element + " (  ");
+    public void reportElement(SingleArray array, int element, String message) {
+        logger.info(message + element + " (  ");
         for (int i : array.getArray()) {
-            System.out.print(i + "\t");
+            logger.debug(i + "\t");
         }
-        System.out.println(").\n");
+        logger.debug(").\n");
     }
 }

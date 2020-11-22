@@ -9,7 +9,7 @@
             <PatternLayout pattern="%d{dd-MM-yyyy HH:mm:ss} (%rms) %M %-5level %logger{2} - %msg%n"/>
             <Policies>
                 <TimeBasedTriggeringPolicy/>
-                <SizeBasedTriggeringPolicy size="1KB"/>
+                <SizeBasedTriggeringPolicy size="20KB"/>
             </Policies>
             <DefaultRolloverStrategy max="10"/>
         </RollingFile>

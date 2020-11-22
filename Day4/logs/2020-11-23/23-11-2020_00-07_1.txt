@@ -1,0 +1,8 @@
+23-11-2020 00:07:58 (1176ms) reportArray INFO  report.JaggedArrayReport - Jagged array.
+
+23-11-2020 00:07:58 (1193ms) reportArray INFO  report.JaggedArrayReport - Jagged array was sorted by rows sum.
+
+23-11-2020 00:07:58 (1193ms) reportArray INFO  report.JaggedArrayReport - Jagged array was sorted by rows' max element.
+
+23-11-2020 00:07:58 (1193ms) reportArray INFO  report.JaggedArrayReport - Jagged array, sorted by rows' min element.
+
