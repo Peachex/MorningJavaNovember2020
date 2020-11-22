@@ -1,0 +1,20 @@
+22-11-2020 23:58:26 (1124ms) reportArray INFO  report.JaggedArrayReport - Jagged array.
+
+22-11-2020 23:58:26 (1135ms) reportArray INFO  report.JaggedArrayReport - Jagged array was sorted by rows sum.
+
+22-11-2020 23:58:26 (1135ms) reportArray INFO  report.JaggedArrayReport - Jagged array was sorted by rows' max element.
+
+22-11-2020 23:58:26 (1136ms) reportArray INFO  report.JaggedArrayReport - Jagged array, sorted by rows' min element.
+
+22-11-2020 23:58:41 (1111ms) reportArray INFO  report.JaggedArrayReport - Jagged array.
+
+22-11-2020 23:58:41 (1117ms) reportArray INFO  report.JaggedArrayReport - Jagged array was sorted by rows sum.
+
+22-11-2020 23:58:41 (1118ms) reportArray INFO  report.JaggedArrayReport - Jagged array was sorted by rows' max element.
+
+22-11-2020 23:58:41 (1135ms) reportArray INFO  report.JaggedArrayReport - Jagged array, sorted by rows' min element.
+
+22-11-2020 23:58:46 (1298ms) reportArray INFO  report.JaggedArrayReport - Jagged array.
+
+22-11-2020 23:58:46 (1306ms) reportArray INFO  report.JaggedArrayReport - Jagged array was sorted by rows sum.
+

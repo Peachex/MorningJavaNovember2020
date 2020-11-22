@@ -17,7 +17,7 @@ public class ProjectMain {
         JaggedArray jaggedArray = new JaggedArray(matrix);
         JaggedArrayReport reporter = new JaggedArrayReport();
 
-        String message1 = "Jagged array:";
+        String message1 = "Jagged array.";
         reporter.reportArray(jaggedArray, message1);
 
         SortService sorter = new SortService();
@@ -25,15 +25,15 @@ public class ProjectMain {
         CalculateService calculator = new CalculateService();
 
         sorter.sortRowsByRowsSum(jaggedArray, creator, calculator, false);
-        String message2 = "Jagged array, sorted by rows sum:";
+        String message2 = "Jagged array was sorted by rows sum.";
         reporter.reportArray(jaggedArray, message2);
 
         sorter.sortRowsByMaxElement(jaggedArray, creator, calculator, false);
-        String message3 = "Jagged array, sorted by rows' max element:";
+        String message3 = "Jagged array was sorted by rows' max element.";
         reporter.reportArray(jaggedArray, message3);
 
         sorter.sortRowsByMinElement(jaggedArray, creator, calculator, false);
-        String message4 = "Jagged array, sorted by rows' min element:";
+        String message4 = "Jagged array, sorted by rows' min element.";
         reporter.reportArray(jaggedArray, message4);
     }
 }
