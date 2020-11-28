@@ -1,13 +1,13 @@
-package src.com.epam.array.single.service;
+package com.epam.array.single.service;
 
-import src.com.epam.array.single.entity.SingleArray;
+import com.epam.array.single.entity.SingleArray;
+
+import java.util.Arrays;
 
 public class SearchService {
-    public boolean binarySearch(SingleArray array, int key) {
-        if (!array.isSorted()) {
-            SortService sort = new SortService();
-            sort.sortArrayWithQuickSort(array);
-        }
+    public boolean findWithBinarySearch(SingleArray array, int key) {
+        SortService sort = new SortService();
+        sort.sortArrayWithQuickSort(array);
         int[] resultArray = array.getArray();
         int low = 0;
         int high = resultArray.length - 1;
@@ -27,33 +27,36 @@ public class SearchService {
         return false;
     }
 
-    public int findMaxElement(SingleArray array) {
-        int[] resultArray = array.getArray();
-        int result = resultArray[0];
-        for (int i : resultArray) {
-            if (i > result) {
-                result = i;
+    public int findMaxElementIndex(SingleArray array) {
+        int maxElement = array.getElement(0);
+        int index = 0;
+        for (int i = 0; i < array.getArray().length; i++) {
+            if (array.getElement(i) > maxElement) {
+                maxElement = array.getElement(i);
+                index = i;
             }
         }
-        return result;
+        return index;
     }
 
-    public int findMinElement(SingleArray array) {
-        int[] resultArray = array.getArray();
-        int result = resultArray[0];
-        for (int i : resultArray) {
-            if (i < result) {
-                result = i;
+    public int findMinElementIndex(SingleArray array) {
+        int minElement = array.getElement(0);
+        int index = 0;
+        for (int i = 0; i < array.getArray().length; i++) {
+            if (array.getElement(i) < minElement) {
+                minElement = array.getElement(i);
+                index = i;
             }
         }
-        return result;
+        return index;
     }
 
-    public int[] findSimpleNumbers(SingleArray array, LogicService logic) {
-        int[] cloneArray = copyArray(array);
+    public int[] findSimpleNumbers(SingleArray array) {
+        NumberService service = new NumberService();
+        int[] cloneArray = Arrays.copyOf(array.getArray(), array.getArray().length);
         int count = 0;
         for (int i = 0; i < cloneArray.length; i++) {
-            if (logic.checkNumberForSimplicity(cloneArray[i])) {
+            if (service.checkNumberForSimplicity(cloneArray[i])) {
                 count++;
             } else {
                 cloneArray[i] = 0;
@@ -62,12 +65,13 @@ public class SearchService {
         return fillResultArray(array, cloneArray, count);
     }
 
-    public int[] findFibonacciNumbers(SingleArray array, CustomCreator creator, LogicService logic) {
-        int[] cloneArray = copyArray(array);
-        int[] fibonacciNumbers = creator.createFibonacciNumbersArray(findMaxElement(array));
+    public int[] findFibonacciNumbers(SingleArray array) {
+        int[] cloneArray = Arrays.copyOf(array.getArray(), array.getArray().length);
+        FibonacciService service = new FibonacciService();
+        int[] fibonacciNumbers = service.findFibonacciNumbersArray(findMaxElementIndex(array));
         int count = 0;
         for (int i = 0; i < cloneArray.length; i++) {
-            if (logic.checkNumberForFibonacci(cloneArray[i], fibonacciNumbers)) {
+            if (service.checkNumberForFibonacci(cloneArray[i], fibonacciNumbers)) {
                 count++;
             } else {
                 cloneArray[i] = 0;
@@ -76,14 +80,15 @@ public class SearchService {
         return fillResultArray(array, cloneArray, count);
     }
 
-    public int[] findNumbersWithDifferentDigits(SingleArray array, CustomCreator creator, LogicService logic, int digitsAmount) {
-        int[] cloneArray = copyArray(array);
+    public int[] findNumbersWithDifferentDigits(SingleArray array, int digitsAmount) {
+        int[] cloneArray = Arrays.copyOf(array.getArray(), array.getArray().length);
         int count = 0;
         int minLimit = (int) Math.pow(10, digitsAmount - 1) - 1;
         int maxLimit = (int) Math.pow(10, digitsAmount) - 1;
+        NumberService service = new NumberService();
         for (int i = 0; i < cloneArray.length; i++) {
             if (Math.abs(cloneArray[i]) > minLimit && Math.abs(cloneArray[i]) < maxLimit) {
-                if (logic.checkNumberForDifferentDigits(creator.createDigitsArray(cloneArray[i]))) {
+                if (service.checkNumberForDifferentDigits(service.findDigitsArray(cloneArray[i]))) {
                     count++;
                 } else {
                     cloneArray[i] = 0;
@@ -98,19 +103,11 @@ public class SearchService {
     private int[] fillResultArray(SingleArray array, int[] cloneArray, int count) {
         int[] resultArray = new int[count];
         count = 0;
-        for (int i = 0; i < array.findSize(); i++) {
+        for (int i = 0; i < array.getArray().length; i++) {
             if (cloneArray[i] != 0) {
                 resultArray[count++] = cloneArray[i];
             }
         }
         return resultArray;
-    }
-
-    private int[] copyArray(SingleArray array) {
-        int[] result = new int[array.findSize()];
-        for (int i = 0; i < array.findSize(); i++) {
-            result[i] = array.getArray()[i];
-        }
-        return result;
     }
 }

@@ -32,6 +32,10 @@ public class Airport {
         return this.airlines;
     }
 
+    public Set<Airline> getAirline(int index) {
+        return this.airlines;
+    }
+
     public void addToAirlines(Airline airline) {
         this.airlines.add(airline);
     }

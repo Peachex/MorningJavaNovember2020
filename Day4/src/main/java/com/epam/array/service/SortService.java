@@ -1,6 +1,6 @@
-package src.com.epam.array.single.service;
+package com.epam.array.single.service;
 
-import src.com.epam.array.single.entity.SingleArray;
+import com.epam.array.single.entity.SingleArray;
 
 public class SortService {
     public void sortArrayWithShellSort(SingleArray array) {
@@ -13,36 +13,31 @@ public class SortService {
                 }
             }
         }
-        array.setSorted(true);
     }
 
     public void sortArrayWithQuickSort(SingleArray array) {
         int leftBorder = 0;
-        int rightBorder = array.findSize() - 1;
-        quickSort(array, leftBorder, rightBorder);
-        array.setSorted(true);
+        int rightBorder = array.getArray().length - 1;
+        quickSort(array.getArray(), leftBorder, rightBorder);
     }
 
     public void sortArrayWithMergeSort(SingleArray array) {
-        int[] result = array.getArray();
-        mergeSort(result);
-        array.setSorted(true);
+        mergeSort(array.getArray());
     }
 
-    private void quickSort(SingleArray array, int leftBorder, int rightBorder) {
-        int[] result = array.getArray();
+    private void quickSort(int[] array, int leftBorder, int rightBorder) {
         int left = leftBorder;
         int right = rightBorder;
-        int pivot = result[(left + right) / 2];
+        int pivot = array[(left + right) / 2];
         do {
-            while (result[left] < pivot) {
+            while (array[left] < pivot) {
                 left++;
             }
-            while (result[right] > pivot) {
+            while (array[right] > pivot) {
                 right--;
             }
             if (left <= right) {
-                swap(result, left, right);
+                swap(array, left, right);
                 left++;
                 right--;
             }

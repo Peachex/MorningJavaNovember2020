@@ -1,4 +1,4 @@
-package src.com.epam.array.matrix.entity;
+package com.epam.array.matrix.entity;
 
 import java.util.Arrays;
 

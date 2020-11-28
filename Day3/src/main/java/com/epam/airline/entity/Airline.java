@@ -1,11 +1,13 @@
 package com.epam.airline.entity;
 
+import com.epam.airline.util.AirlineIdGenerator;
+
 import java.math.BigDecimal;
 import java.time.LocalTime;
 import java.time.DayOfWeek;
-import java.util.Objects;
 
 public class Airline {
+    private final long airlineId = AirlineIdGenerator.getIncreasedIdValue();
     private String destination;
     private String flightNumber;
     private String planeType;
@@ -21,6 +23,10 @@ public class Airline {
         this.departureTime = departureTime;
         this.dayOfWeek = dayOfWeek;
         this.ticketCost = ticketCost;
+    }
+
+    public long getAirlineId() {
+        return this.airlineId;
     }
 
     public String getDestination() {
@@ -72,9 +78,46 @@ public class Airline {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Airline airline = (Airline) o;
+        if (airlineId != airline.airlineId) {
+            return false;
+        }
+        if (!ticketCost.equals(airline.ticketCost)) {
+            return false;
+        }
+        if (dayOfWeek != airline.dayOfWeek) {
+            return false;
+        }
+        return (destination.equals(airline.destination) &&
+                flightNumber.equals(airline.flightNumber) &&
+                planeType.equals(airline.planeType) &&
+                departureTime.equals(airline.departureTime));
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 31 * (int) airlineId +
+                (ticketCost != null ? ticketCost.hashCode() : 0) +
+                (dayOfWeek != null ? dayOfWeek.hashCode() : 0) +
+                (destination != null ? destination.hashCode() : 0) +
+                (flightNumber != null ? flightNumber.hashCode() : 0) +
+                (planeType != null ? planeType.hashCode() : 0) +
+                (departureTime != null ? departureTime.hashCode() : 0);
+        return result;
+    }
+
+    @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder();
-        sb.append("destination = ").append(destination);
+        sb.append("id = ").append(airlineId);
+        sb.append("\ndestination = ").append(destination);
         sb.append("\nflightNumber = ").append(flightNumber);
         sb.append("\nplaneType = ").append(planeType);
         sb.append("\ndepartureTime = ").append(departureTime);
@@ -82,23 +125,5 @@ public class Airline {
         sb.append("\nticketCost = ").append(ticketCost);
         sb.append("$\n");
         return sb.toString();
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Airline)) return false;
-        Airline airline = (Airline) o;
-        return Objects.equals(destination, airline.destination) &&
-                Objects.equals(flightNumber, airline.flightNumber) &&
-                Objects.equals(planeType, airline.planeType) &&
-                Objects.equals(departureTime, airline.departureTime) &&
-                dayOfWeek == airline.dayOfWeek &&
-                Objects.equals(ticketCost, airline.ticketCost);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(destination, flightNumber, planeType, departureTime, dayOfWeek, ticketCost);
     }
 }

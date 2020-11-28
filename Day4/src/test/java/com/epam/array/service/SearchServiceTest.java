@@ -4,39 +4,36 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 import org.testng.annotations.Test;
-import src.com.epam.array.single.entity.SingleArray;
-import src.com.epam.array.single.service.CustomCreator;
-import src.com.epam.array.single.service.LogicService;
-import src.com.epam.array.single.service.SearchService;
+import com.epam.array.single.entity.SingleArray;
 
 public class SearchServiceTest {
     @Test
-    public void binarySearchTest() {
+    public void findWithBinarySearchTest() {
         int[] numbers = {1, 2, 9, 8, 3, 4, 6, 5};
-        SingleArray array = new SingleArray(false, numbers);
+        SingleArray array = new SingleArray(numbers);
         SearchService searcher = new SearchService();
         int key = 3;
-        boolean condition = searcher.binarySearch(array, key);
+        boolean condition = searcher.findWithBinarySearch(array, key);
         assertTrue(condition);
     }
 
     @Test
-    public void findMaxElementTest() {
-        int expected = 9;
+    public void findMaxElementIndexTest() {
+        int expected = 2;
         int[] numbers = {1, 2, 9, 8, 3, 4, 6, 5};
-        SingleArray array = new SingleArray(false, numbers);
+        SingleArray array = new SingleArray(numbers);
         SearchService searcher = new SearchService();
-        int actual = searcher.findMaxElement(array);
+        int actual = searcher.findMaxElementIndex(array);
         assertEquals(actual, expected);
     }
 
     @Test
-    public void findMinElementTest() {
-        int expected = -8;
+    public void findMinElementIndexTest() {
+        int expected = 3;
         int[] numbers = {1, 2, 9, -8, 3, 4, 6, 5};
-        SingleArray array = new SingleArray(false, numbers);
+        SingleArray array = new SingleArray(numbers);
         SearchService searcher = new SearchService();
-        int actual = searcher.findMinElement(array);
+        int actual = searcher.findMinElementIndex(array);
         assertEquals(actual, expected);
     }
 
@@ -44,10 +41,9 @@ public class SearchServiceTest {
     public void findSimpleNumbersTest() {
         int[] expected = {1, 2, 3, 17, 5};
         int[] numbers = {1, 2, 9, -8, 3, 17, 6, 5};
-        SingleArray array = new SingleArray(false, numbers);
+        SingleArray array = new SingleArray(numbers);
         SearchService searcher = new SearchService();
-        LogicService logic = new LogicService();
-        int[] actual = searcher.findSimpleNumbers(array, logic);
+        int[] actual = searcher.findSimpleNumbers(array);
         assertEquals(actual, expected);
     }
 
@@ -55,11 +51,9 @@ public class SearchServiceTest {
     public void findFibonacciNumbersTest() {
         int[] expected = {1, 2, 3, 5};
         int[] numbers = {1, 2, 9, -8, 3, 17, 6, 5};
-        SingleArray array = new SingleArray(false, numbers);
+        SingleArray array = new SingleArray(numbers);
         SearchService searcher = new SearchService();
-        CustomCreator creator = new CustomCreator();
-        LogicService logic = new LogicService();
-        int[] actual = searcher.findFibonacciNumbers(array, creator, logic);
+        int[] actual = searcher.findFibonacciNumbers(array);
         assertEquals(actual, expected);
     }
 
@@ -67,12 +61,10 @@ public class SearchServiceTest {
     public void findNumbersWithDifferentDigitsTest() {
         int[] expected = {123, 214, 901, 324};
         int[] numbers = {112, 123, 214, 212, 900, 901, 909, 324};
-        SingleArray array = new SingleArray(false, numbers);
+        SingleArray array = new SingleArray(numbers);
         SearchService searcher = new SearchService();
-        LogicService logic = new LogicService();
-        CustomCreator creator = new CustomCreator();
         int digitsAmount = 3;
-        int[] actual = searcher.findNumbersWithDifferentDigits(array, creator, logic, digitsAmount);
+        int[] actual = searcher.findNumbersWithDifferentDigits(array, digitsAmount);
         assertEquals(actual, expected);
     }
 }
